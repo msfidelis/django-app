@@ -1,1 +1,25 @@
-<h1>Welcome to the Django!</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Welcome to the Django</title>
+    </head>
+
+    <body>
+        <h1>Welcome to the Django!</h1>
+
+        {% if perfis %}
+            <ul>
+                {% for perfil in perfis %}
+                    <li><a href="{% url 'exibir' perfil.id %}"> {{perfil.nome}} </a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhum Perfil encontrado</p>
+        {% endif %}
+
+    </body>
+
+</html>

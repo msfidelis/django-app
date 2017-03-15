@@ -5,7 +5,10 @@
         <title>ConnectedIn</title>
     </head>
     <body>
-         <h1>Detalhe Perfil</h1>
-         nome: {{perfil.nome}}, email: {{perfil.email}}, telefone: {{perfil.telefone}}, empresa: {{perfil.nome_empresa}}
+         <h1>Detalhe Perfil {{perfil.nome|default:'Não informado'}}</h1>
+         <p>Email: {{perfil.email|default:'Não informado'}}</p>
+         <p>Telefone: {{perfil.telefone|default:'Não informado'}}</p>
+         <p>Empresa: {{perfil.nome_empresa|default:'Não informado'}}</p>
+         <a href="{% url 'convidar' perfil.id %}">Convidar</a>
     </body>
 </html>
