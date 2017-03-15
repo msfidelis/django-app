@@ -1,14 +1,20 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="utf-8">
-        <title>ConnectedIn</title>
-    </head>
-    <body>
-         <h1>Detalhe Perfil {{perfil.nome|default:'Não informado'}}</h1>
-         <p>Email: {{perfil.email|default:'Não informado'}}</p>
-         <p>Telefone: {{perfil.telefone|default:'Não informado'}}</p>
-         <p>Empresa: {{perfil.nome_empresa|default:'Não informado'}}</p>
-         <a href="{% url 'convidar' perfil.id %}">Convidar</a>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-lg-12">
+			<h2>{{perfil.nome|default:'Não informado'}}</h2>
+			
+		<address>
+			<strong> {{perfil.email|default:'Não informado'}} </strong>	<br>
+			<a href="mailto:{{perfil.email}}">E-mail</a> <br>
+			<abbr title="Telefone">Tel:</abbr>{{perfil.telefone|default:'Não informado'}}<br>
+		</address>
+
+		<br>
+
+		<a class="btn btn-info" href="{% url 'convidar' perfil.id %}">Convidar</a>
+		</div>
+	</div>
+{% endblock %}
+
